@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SinglyLinked
 {
-    class SinglyLinkedNode<T>
+    public class SinglyLinkedNode<T>
     {
         #region GetSet
         public T Thing
@@ -21,7 +21,7 @@ namespace SinglyLinked
         }
         #endregion
 
-        private SinglyLinkedNode(T thingToStore, SinglyLinkedNode<T> next = null)
+        public SinglyLinkedNode(T thingToStore, SinglyLinkedNode<T> next = null)
         {
             Thing = thingToStore;
             Next = next;
