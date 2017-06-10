@@ -47,7 +47,21 @@ namespace SinglyLinked
 
         public SinglyLinkedNode<T> DeleteAfter()
         {
+            SinglyLinkedNode<T> node = Next;
 
+            if (CanDeleteAfter())
+            {
+                node = node.Next.Next;
+                node.Next = null;
+
+                return node;
+            }
+
+            else
+            {
+                node.Next = null;
+                return node;
+            }
         }
     }
 }
