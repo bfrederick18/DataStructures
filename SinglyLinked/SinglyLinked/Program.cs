@@ -16,15 +16,32 @@ namespace SinglyLinked
             singlyLinked.Add(8);
             singlyLinked.Add(3);
             singlyLinked.Add(6);
-            singlyLinked.Insert(9, 1);
+
+            foreach (var item in singlyLinked)
+            {
+                Console.WriteLine(" {0}",item);
+            }
+            Console.WriteLine("--------");
+
+            singlyLinked.Insert(9, 2);
             singlyLinked.Insert(17, -1);
             singlyLinked.Insert(16, 0);
             
 
             foreach(var item in singlyLinked)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(" {0}", item);
             }
+            Console.WriteLine("--------");
+
+            singlyLinked.Delete(8);
+
+            foreach (var item in singlyLinked)
+            {
+                Console.WriteLine(" {0}", item);
+            }
+            Console.WriteLine("--------");
+
 
             Console.ReadKey();
 

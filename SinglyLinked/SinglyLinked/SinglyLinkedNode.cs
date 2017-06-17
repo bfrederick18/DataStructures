@@ -36,32 +36,11 @@ namespace SinglyLinked
             return node;
         }
 
-        public bool CanDeleteAfter()
+        public void DeleteAfter()
         {
-            SinglyLinkedNode<T> node = Next;
-            if (node.Next.Next != null)
+            if (Next != null)
             {
-                return false;
-            }
-            else return true;
-        }
-
-        public SinglyLinkedNode<T> DeleteAfter()
-        {
-            SinglyLinkedNode<T> node = Next;
-
-            if (CanDeleteAfter())
-            {
-                node = node.Next.Next;
-                node.Next = null;
-
-                return node;
-            }
-
-            else
-            {
-                node.Next = null;
-                return node;
+                Next = Next.Next;
             }
         }
     }

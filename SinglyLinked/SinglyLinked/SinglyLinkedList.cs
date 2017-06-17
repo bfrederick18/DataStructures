@@ -52,6 +52,39 @@ namespace SinglyLinked
             }
         }
 
+        public void Delete(int thingToDelete)
+        {
+            SinglyLinkedNode<int> tempNode = head;
+
+            if (head.Thing == thingToDelete)
+            {
+                head = head.Next;
+            }
+
+            else
+            {
+                while (true)
+                {
+                    if (tempNode.Next == null)
+                    {
+                        Console.WriteLine("ERROR : COULD NOT FIND {0} IN THE SINGLY LINKED LIST", thingToDelete);
+                        break;
+                    }
+
+                    if (tempNode.Next.Thing == thingToDelete)
+                    {
+                        tempNode.DeleteAfter();
+                        break;
+                    }
+
+                    else
+                    {
+                        tempNode = tempNode.Next;
+                    }
+                }
+            }
+        }
+
         public void Insert(int thingToStore, int index)
         {
             if (index > count)
@@ -67,6 +100,7 @@ namespace SinglyLinked
                 tempNode.Next = head;
 
                 head = tempNode;
+                count++;
             }
 
             else
@@ -78,6 +112,7 @@ namespace SinglyLinked
                 }
 
                 tempNode.AddAfter(thingToStore);
+                count++;
             }
         }
 
