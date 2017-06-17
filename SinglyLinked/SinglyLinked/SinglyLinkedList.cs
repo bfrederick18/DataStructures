@@ -17,7 +17,7 @@ namespace SinglyLinked
 
         public void Add(int thingToStore)
         {
-            #region THAD WUZ HERE
+            #region THADdyboi WUZ HEER
             /*
             if (thingToStore != 0)
             {
@@ -59,6 +59,7 @@ namespace SinglyLinked
             if (head.Thing == thingToDelete)
             {
                 head = head.Next;
+                count--;
             }
 
             else
@@ -67,13 +68,14 @@ namespace SinglyLinked
                 {
                     if (tempNode.Next == null)
                     {
-                        Console.WriteLine("ERROR : COULD NOT FIND {0} IN THE SINGLY LINKED LIST", thingToDelete);
+                        Console.WriteLine("Plez... RETINK UR DISKISION\nERROR : Could Not Find {0} In The Singly Linked List", thingToDelete);
                         break;
                     }
 
                     if (tempNode.Next.Thing == thingToDelete)
                     {
                         tempNode.DeleteAfter();
+                        count--;
                         break;
                     }
 
@@ -85,14 +87,42 @@ namespace SinglyLinked
             }
         }
 
+        public void DeleteAt(int index)
+        {
+            if (index > count)
+            {
+                Console.WriteLine("Plez... RETINK UR DISKISION\nERROR : You Tried To Delete At Index {1}", index);
+            }
+
+            if (index == -1)
+            {
+                head = head.Next;
+            }
+
+            else
+            {
+                SinglyLinkedNode<int> tempNode = head;
+                for (int i = 0; i < index; i++)
+                {
+                    if (tempNode.Next == null)
+                    { break; }
+
+                    tempNode = tempNode.Next;
+                }
+
+                tempNode.DeleteAfter();
+                count--;
+            }
+        }
+
         public void Insert(int thingToStore, int index)
         {
             if (index > count)
             {
-                Console.WriteLine("Plez... RETINK UR DISKISION\nERROR ERROR ERROR");
+                Console.WriteLine("Plez... RETINK UR DISKISION\nERROR : You Tried To Insert {0} At Index {1}", thingToStore, index);
             }
 
-            if (index == -1)
+            else if (index == -1)
             //doblee check with teeessstts
             {
                 SinglyLinkedNode<int> tempNode = new SinglyLinkedNode<int>(thingToStore);
@@ -108,6 +138,9 @@ namespace SinglyLinked
                 SinglyLinkedNode<int> tempNode = head;
                 for (int i = 0; i < index; i++)
                 {
+                    if (tempNode.Next == null)
+                    { break; }
+
                     tempNode = tempNode.Next;
                 }
 
