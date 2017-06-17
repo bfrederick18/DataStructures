@@ -40,6 +40,7 @@ namespace SinglyLinked
             singlyLinked.DeleteAt(-1);
             singlyLinked.DeleteAt(2);
             singlyLinked.DeleteAt(3);
+
             Display(singlyLinked);
 
             Console.ReadKey();
