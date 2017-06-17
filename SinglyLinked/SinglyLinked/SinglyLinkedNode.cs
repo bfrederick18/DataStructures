@@ -29,6 +29,7 @@ namespace SinglyLinked
         public SinglyLinkedNode<T> AddAfter(T thingToStore)
         {
             SinglyLinkedNode<T> node = new SinglyLinkedNode<T>(thingToStore);
+            node.Next = Next;
 
             Next = node;
 

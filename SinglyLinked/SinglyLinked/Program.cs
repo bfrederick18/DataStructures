@@ -11,11 +11,22 @@ namespace SinglyLinked
         static void Main(string[] args)
         {
 
+            SinglyLinkedList singlyLinked = new SinglyLinkedList();
 
+            singlyLinked.Add(8);
+            singlyLinked.Add(3);
+            singlyLinked.Add(6);
+            singlyLinked.Insert(9, 1);
+            singlyLinked.Insert(17, -1);
+            singlyLinked.Insert(16, 0);
+            
 
+            foreach(var item in singlyLinked)
+            {
+                Console.WriteLine(item);
+            }
 
-
-
+            Console.ReadKey();
 
         }
     }

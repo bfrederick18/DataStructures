@@ -9,7 +9,7 @@ namespace SinglyLinked
     public class SinglyLinkedList
     {
         SinglyLinkedNode<int> head;
-        int count = 0;
+        public int count = 0;
         public SinglyLinkedList()
         {
             head = null; 
@@ -17,9 +17,19 @@ namespace SinglyLinked
 
         public void Add(int thingToStore)
         {
+            #region THAD WUZ HERE
+            /*
+            if (thingToStore != 0)
+            {
+                goto label;
+            }
+            return;
+        label:*/
+            #endregion
+
             if (head == null)
             {
-                head.AddAfter(thingToStore);
+                head = new SinglyLinkedNode<int>(thingToStore);
                 count++;
             }
 
@@ -32,6 +42,7 @@ namespace SinglyLinked
                     {
                         tempNode.AddAfter(thingToStore);
                         count++;
+                        break;
                     }
                     else
                     {
@@ -48,7 +59,7 @@ namespace SinglyLinked
                 Console.WriteLine("Plez... RETINK UR DISKISION\nERROR ERROR ERROR");
             }
 
-            if (index == 0)
+            if (index == -1)
             //doblee check with teeessstts
             {
                 SinglyLinkedNode<int> tempNode = new SinglyLinkedNode<int>(thingToStore);
@@ -70,6 +81,14 @@ namespace SinglyLinked
             }
         }
 
-
+        public IEnumerator<int> GetEnumerator()
+        {
+            var current = head;
+            while (current != null)
+            {
+                yield return current.Thing;
+                current = current.Next;
+            }
+        }
     }
 }
