@@ -13,5 +13,15 @@ namespace DoublyLinked
 
 
         }
+
+        static void Display(DoublyLinkedList doublyLinked)
+        {
+            foreach (var item in doublyLinked)
+            {
+                Console.WriteLine(" {0}", item);
+            }
+            Console.WriteLine(" Count : {0}", doublyLinked.count);
+            Console.WriteLine("--------------------------------");
+        }
     }
 }
