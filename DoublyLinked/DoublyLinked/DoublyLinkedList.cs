@@ -56,5 +56,41 @@ namespace DoublyLinked
                 count++;
             }
         }
+        public void DeleteAtEnd(int thingToDelete)
+        {
+            DoublyLinkedNode<int> tempNode = head;
+
+            if (head.Thing == thingToDelete)
+            {
+                head = head.Next;
+                count--;
+            }
+
+            else
+            {
+                while (true)
+                {
+                    if (tempNode.Next == null)
+                    {
+                        Console.WriteLine("Plez... RETINK UR DISKISION\nERROR : Could Not Find {0} In The Singly Linked List", thingToDelete);
+                        break;
+                    }
+
+                    if (tempNode.Next.Thing == thingToDelete)
+                    {
+                        tempNode.DeleteAfter();
+                        count--;
+                        break;
+                    }
+
+                    else
+                    {
+                        tempNode = tempNode.Next;
+                    }
+                }
+            }
+        }
+
+        //
     }
 }
