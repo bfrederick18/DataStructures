@@ -91,6 +91,14 @@ namespace DoublyLinked
             }
         }
 
-        //
+        public IEnumerator<int> GetEnumerator()
+        {
+            var current = head;
+            while (current != null)
+            {
+                yield return current.Thing;
+                current = current.Next;
+            }
+        }
     }
 }
