@@ -9,7 +9,7 @@ namespace DoublyLinked
     public class DoublyLinkedList
     {
         DoublyLinkedNode<int> head;
-        int count = 0;
+        public int count = 0;
         public DoublyLinkedList()
         {
             head = null;
@@ -47,6 +47,7 @@ namespace DoublyLinked
             if (head == null)
             {
                 head = new DoublyLinkedNode<int>(thingToStore);
+                count++;
             }
 
             else
@@ -56,27 +57,19 @@ namespace DoublyLinked
                 count++;
             }
         }
-        public void DeleteAtEnd(int thingToDelete)
+        public void DeleteAtEnd()
         {
-            DoublyLinkedNode<int> tempNode = head;
-
-            if (head.Thing == thingToDelete)
+            if (head == null)
             {
-                head = head.Next;
-                count--;
+                Console.WriteLine("Plez... RETINK UR DISKISION\nERROR : Could Not Delete Head Since It Is Null");
             }
 
             else
             {
+                DoublyLinkedNode<int> tempNode = head;
                 while (true)
                 {
-                    if (tempNode.Next == null)
-                    {
-                        Console.WriteLine("Plez... RETINK UR DISKISION\nERROR : Could Not Find {0} In The Singly Linked List", thingToDelete);
-                        break;
-                    }
-
-                    if (tempNode.Next.Thing == thingToDelete)
+                    if (tempNode.Next.Next == null)
                     {
                         tempNode.DeleteAfter();
                         count--;
@@ -88,6 +81,19 @@ namespace DoublyLinked
                         tempNode = tempNode.Next;
                     }
                 }
+            }
+        }
+        public void DeleteAtFront()
+        {
+            if (head == null)
+            {
+                Console.WriteLine("Plez... RETINK UR DISKISION\nERROR : Could Not Delete Head Since It Is Null");
+            }
+
+            else
+            {
+                head = head.Next;
+                count--;
             }
         }
 
