@@ -130,6 +130,10 @@ namespace DoublyLinked
                 count--;
             }
         }
+        public void DeleteAt(int index)
+        {
+            if 
+        }
 
         public IEnumerator<int> GetEnumerator()
         {
