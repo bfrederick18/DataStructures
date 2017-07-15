@@ -42,6 +42,11 @@ namespace DoublyLinked
 
             Display(doublyLinked);
 
+            doublyLinked.AddAt(17, -1);
+            doublyLinked.AddAt(99, 1);
+            doublyLinked.AddAt(30, 1);
+            Display(doublyLinked);
+
             Console.ReadKey();
         }
 

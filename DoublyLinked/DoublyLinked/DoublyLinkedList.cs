@@ -57,6 +57,40 @@ namespace DoublyLinked
                 count++;
             }
         }
+        public void AddAt(int thingToStore, int index)
+        {
+            if (index > count)
+            {
+                Console.WriteLine("Plez... RETINK UR DISKISION\nERROR : You Tried To Insert {0} At Index {1}", thingToStore, index);
+            }
+
+            else if (index == -1)
+            //doblee check with teeessstts
+            {
+                DoublyLinkedNode<int> tempNode = new DoublyLinkedNode<int>(thingToStore);
+
+                tempNode.Next = head;
+
+                head = tempNode;
+                count++;
+            }
+
+            else
+            {
+                DoublyLinkedNode<int> tempNode = head;
+                for (int i = 0; i < index; i++)
+                {
+                    if (tempNode.Next == null)
+                    { break; }
+
+                    tempNode = tempNode.Next;
+                }
+
+                tempNode.AddAfter(thingToStore);
+                count++;
+            }
+        }
+
         public void DeleteAtEnd()
         {
             if (head == null)
