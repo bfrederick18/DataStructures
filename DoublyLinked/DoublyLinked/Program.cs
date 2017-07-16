@@ -11,13 +11,13 @@ namespace DoublyLinked
         static void Main(string[] args)
         {
             //Console.WindowWidth = 185;
-            Console.WindowHeight = 40;
+            Console.WindowHeight = 45;
             //Console.BufferWidth = 185;
-            Console.BufferHeight = 40;
+            Console.BufferHeight = 45;
 
             DoublyLinkedList doublyLinked = new DoublyLinkedList();
 
-            Welcome();
+            Welcome(doublyLinked);
 
             doublyLinked.AddToEnd(8);
             doublyLinked.AddToEnd(11);
@@ -55,6 +55,8 @@ namespace DoublyLinked
 
             Display(doublyLinked);
 
+
+
             Console.ReadKey();
         }
 
@@ -65,12 +67,15 @@ namespace DoublyLinked
                 Console.WriteLine(" {0}", item);
             }
             Console.WriteLine(" Count : {0}", doublyLinked.count);
+            Console.WriteLine(" IsEmpty : {0}", doublyLinked.IsEmpty());
             Console.WriteLine("--------------------------------");
         }
 
-        static void Welcome()
+        static void Welcome(DoublyLinkedList doublyLinked)
         {
-            Console.WriteLine("\n  Welcome to DoublyLinkedLists ");
+            Console.WriteLine("\n Welcome to DoublyLinkedLists ");
+            Console.WriteLine(" Count : {0}", doublyLinked.count);
+            Console.WriteLine(" IsEmpty : {0}", doublyLinked.IsEmpty());
             Console.WriteLine("\n--------------------------------");
         }
     }

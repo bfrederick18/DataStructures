@@ -162,6 +162,15 @@ namespace DoublyLinked
             }
         }
 
+        public bool IsEmpty()
+        {
+            if (count == 0)
+            { return true; }
+
+            else
+            { return false; }
+        }
+
         public IEnumerator<int> GetEnumerator()
         {
             var current = head;
