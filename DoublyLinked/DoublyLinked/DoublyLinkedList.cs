@@ -81,7 +81,9 @@ namespace DoublyLinked
                 for (int i = 0; i < index; i++)
                 {
                     if (tempNode.Next == null)
-                    { break; }
+                    {
+                        break;
+                    }
 
                     tempNode = tempNode.Next;
                 }
@@ -132,7 +134,32 @@ namespace DoublyLinked
         }
         public void DeleteAt(int index)
         {
-            if 
+            if (index > count)
+            {
+                Console.WriteLine("Plez... RETINK UR DISKISION\nERROR : You Tried To Delete At Index {1}", index);
+            }
+
+            else if (index == 0)
+            //doblee check with teeessstts
+            {
+                head = head.Next;
+            }
+
+            else
+            {
+                DoublyLinkedNode<int> tempNode = head;
+                for (int i = 0; i < index - 1; i++)
+                {
+                    if (tempNode.Next == null)
+                    {
+                        break;
+                    }
+
+                    tempNode = tempNode.Next;
+                }
+                tempNode.DeleteAfter();
+                count--;
+            }
         }
 
         public IEnumerator<int> GetEnumerator()
