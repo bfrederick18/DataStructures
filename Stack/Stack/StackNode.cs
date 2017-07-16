@@ -19,12 +19,18 @@ namespace Stack
             get;
             set;
         }
+        public StackNode<T> Previous
+        {
+            get;
+            set;
+        }
         #endregion
 
-        public StackNode(T thingToStore, StackNode<T> next = null)
+        public StackNode(T thingToStore, StackNode<T> next = null, StackNode<T> previous = null)
         {
             Thing = thingToStore;
             Next = next;
+            Previous = previous;
         }
 
         public StackNode<T> AddAfter(T thingToStore)
@@ -42,6 +48,5 @@ namespace Stack
                 Next = Next.Next;
             }
         }
-
     }
 }
