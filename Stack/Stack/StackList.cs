@@ -30,7 +30,6 @@ namespace Stack
                 count++;
             }
         }
-
         public void Pop()
         {
             if (head == null)
@@ -40,21 +39,35 @@ namespace Stack
             else
             {
                 head = head.Next;
+                count--;
             }
-            count--;
         }
-
         public void Pops(int howMany, StackList stack)
         {
+            if (howMany > count)
+            {
+                throw new Exception("HowMany is gretaer that the count");
+            }
+            
             for (int i = 0; i < howMany; i++)
             {
                 stack.Pop();
             }
         }
-
         public void Peek()
         {
-            Console.WriteLine(" {0}",head.Thing);
+            Console.WriteLine(" ~~~~~");
+            Console.WriteLine(" | {0} |",head.Thing);
+            Console.WriteLine(" ~~~~~");
+        }
+
+        public bool IsEmpty()
+        {
+            if (head == null)
+                return true;
+
+            else
+                return false;
         }
 
         public IEnumerator<int> GetEnumerator()

@@ -46,6 +46,8 @@ namespace Stack
             Display(stack);
 
             stack.Peek();
+            Display(stack);
+
 
             Console.ReadKey();
 
